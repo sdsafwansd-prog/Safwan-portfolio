@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAFWAN SD - Resume / Curriculum Vitae</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --text-main: #0f172a;
+      --text-muted: #334155;
+      --text-light: #64748b;
+      --border: #cbd5e1;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.55;
+      padding: 30px 20px;
+    }
+
+    /* Print & Action Bar */
+    .action-bar {
+      max-width: 850px;
+      margin: 0 auto 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-print {
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s ease;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);
+    }
+
+    .btn-print:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-back {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-back:hover {
+      color: var(--primary);
+    }
+
+    .resume-wrapper {
+      max-width: 850px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      padding: 44px 48px;
+      border-radius: 10px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border);
+    }
+
+    /* Resume Header */
+    .header {
+      text-align: center;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--text-main);
+      margin-bottom: 18px;
+    }
+
+    .header h1 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .contact-line {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact-item a {
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-separator {
+      color: var(--text-light);
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+    }
+
+    /* Summary */
+    .summary-text {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    /* Education */
+    .edu-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.93rem;
+    }
+
+    .edu-degree {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .edu-college {
+      color: var(--text-muted);
+    }
+
+    .edu-year {
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-muted);
+    }
+
+    /* Projects */
+    .project-entry {
+      margin-bottom: 14px;
+    }
+
+    .project-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .project-bullets {
+      list-style-type: disc;
+      padding-left: 22px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    /* Skills Grid */
+    .skills-block {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.92rem;
+    }
+
+    .skills-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .skills-label {
+      font-weight: 700;
+      color: var(--text-main);
+      min-width: 220px;
+    }
+
+    .skills-content {
+      color: var(--text-muted);
+    }
+
+    /* Soft Skills */
+    .soft-skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      list-style: none;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .soft-skills-list li {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .soft-skills-list li::before {
+      content: '•';
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    /* Certifications */
+    .certs-list {
+      list-style-type: disc;
+      padding-left: 22px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* Print Setup */
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+        font-size: 11pt;
+      }
+
+      .action-bar {
+        display: none !important;
+      }
+
+      .resume-wrapper {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+
+      .section {
+        margin-bottom: 14px;
+        page-break-inside: avoid;
+      }
+
+      .project-entry {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar -->
+  <div class="action-bar">
+    <a href="index.html" class="btn-back">
+      <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+    </a>
+    <button onclick="window.print()" class="btn-print">
+      <i class="fa-solid fa-print"></i> Print / Save as PDF
+    </button>
+  </div>
+
+  <div class="resume-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <h1>SAFWAN SD</h1>
+      <div class="contact-line">
+        <span class="contact-item">
+          <i class="fa-solid fa-location-dot"></i> Bengaluru
+        </span>
+        <span class="contact-separator">|</span>
+        <span class="contact-item">
+          <i class="fa-solid fa-phone"></i> 6383061437
+        </span>
+        <span class="contact-separator">|</span>
+        <span class="contact-item">
+          <i class="fa-solid fa-envelope"></i> <a href="mailto:sdsafwansd@gmail.com">sdsafwansd@gmail.com</a>
+        </span>
+        <span class="contact-separator">|</span>
+        <span class="contact-item">
+          <i class="fa-brands fa-linkedin"></i> <a href="http://linkedin.com/in/safwan11" target="_blank" rel="noopener">linkedin.com/in/safwan11</a>
+        </span>
+      </div>
+    </header>
+
+    <!-- Summary -->
+    <section class="section">
+      <h2 class="section-title">SUMMARY</h2>
+      <p class="summary-text">
+        Skilled in Python (Pandas), SQL, Excel, Power BI, and Tableau for data cleaning, transformation, and visualization. Experienced in identifying trends and patterns to deliver actionable insights and support data-driven decision-making. Proficient in creating interactive dashboards, KPIs, and reports to optimize business performance. Passionate about continuous learning, problem-solving, and applying analytical techniques to drive operational efficiency.
+      </p>
+    </section>
+
+    <!-- Education -->
+    <section class="section">
+      <h2 class="section-title">EDUCATION</h2>
+      <div class="edu-entry">
+        <div>
+          <div class="edu-degree">Bachelor in Business Administration (B.B.A)</div>
+          <div class="edu-college">The New College</div>
+        </div>
+        <div class="edu-year">2022-2025</div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section">
+      <h2 class="section-title">PROJECTS</h2>
+
+      <!-- Project 1: Flight Booking System -->
+      <div class="project-entry">
+        <div class="project-title">Flight Booking System &ndash; SQL</div>
+        <ul class="project-bullets">
+          <li>Designed and Executed a relational database for a Flight Booking System to manage flight schedules, passenger details, and ticket reservations.</li>
+          <li>Initiated normalized database tables including Flights, Passengers, Bookings, and Tickets using MySQL.</li>
+          <li>Wrote SQL queries to perform CRUD operations (Create, Read, Update, Delete) for efficient data management.</li>
+          <li>Applied primary and foreign key constraints to maintain data integrity and establish relationships between tables.</li>
+        </ul>
+      </div>
+
+      <!-- Project 2: OTT Platform Analytics Dashboard -->
+      <div class="project-entry">
+        <div class="project-title">OTT Platform Analytics Dashboard &ndash; Power BI</div>
+        <ul class="project-bullets">
+          <li>Enhanced an interactive OTT Platform Analytics Dashboard using Power BI to analyze user engagement, content performance, and subscription trends.</li>
+          <li>Performed data cleaning and transformation using Power Query to prepare datasets for analysis.</li>
+          <li>Established DAX measures and calculated columns to generate key performance indicators (KPIs) such as total users, watch time, and subscription growth.</li>
+          <li>Planned dynamic visualizations including bar charts, line charts, and filters to monitor platform performance and user behavior.</li>
+        </ul>
+      </div>
+
+      <!-- Project 3: Social Media Engagement Dashboard -->
+      <div class="project-entry">
+        <div class="project-title">Social Media Engagement Dashboard &ndash; Tableau</div>
+        <ul class="project-bullets">
+          <li>Improved an interactive Social Media Engagement Dashboard using Tableau to analyze key metrics such as likes, comments, shares, and follower growth.</li>
+          <li>Performed data preparation and transformation to organize social media datasets for accurate analysis.</li>
+          <li>Established calculated fields and key performance indicators (KPIs) to measure engagement rate, reach, and audience interaction.</li>
+          <li>Created dynamic visualizations including bar charts, line charts, heatmaps, and filters to identify engagement trends across platforms.</li>
+        </ul>
+      </div>
+
+      <!-- Project 4: Expense Tracker -->
+      <div class="project-entry">
+        <div class="project-title">Expense Tracker &ndash; Python</div>
+        <ul class="project-bullets">
+          <li>Improved a Python-based Expense Tracker application to record, categorize, and manage daily expense data.</li>
+          <li>Utilized Python libraries such as Pandas and NumPy for data processing, analysis, and data manipulation.</li>
+          <li>Enforced CSV file handling to store, retrieve, and update expense records efficiently.</li>
+        </ul>
+      </div>
+
+      <!-- Project 5: Sales Performance Dashboard -->
+      <div class="project-entry">
+        <div class="project-title">Sales Performance Dashboard &ndash; Excel</div>
+        <ul class="project-bullets">
+          <li>Utilized Pivot Tables, Pivot Charts, and advanced Excel formulas to summarize large datasets and generate key performance indicators (KPIs).</li>
+          <li>Applied slicers and dynamic charts to enable easy filtering and comparison of sales performance.</li>
+          <li>Analyzed sales trends to identify top-performing products, regional performance, and revenue growth patterns.</li>
+          <li>Generated data-driven insights to support strategic decision-making and improve overall sales performance.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="section">
+      <h2 class="section-title">TECHNICAL SKILLS</h2>
+      <div class="skills-block">
+        <div class="skills-row">
+          <span class="skills-label">Programming Languages &amp; Tools:</span>
+          <span class="skills-content">Python, SQL (MySQL), Excel, Tableau, Power BI</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Soft Skills -->
+    <section class="section">
+      <h2 class="section-title">SOFT SKILLS</h2>
+      <ul class="soft-skills-list">
+        <li>Analytical Thinking</li>
+        <li>Problem Solving</li>
+        <li>Data Interpretation</li>
+        <li>Communication Skills</li>
+      </ul>
+    </section>
+
+    <!-- Certifications -->
+    <section class="section">
+      <h2 class="section-title">CERTIFICATIONS</h2>
+      <ul class="certs-list">
+        <li>Finished professional training in SQL Mastery and Advanced Excel from IT Vedant, focusing on query optimization and reporting skills.</li>
+        <li>Finished Python for Data Analysis training from IT Vedant, covering data manipulation and analytical techniques.</li>
+        <li>Concluded training in Power BI and Tableau from IT Vedant, specializing in interactive dashboards and data visualization.</li>
+      </ul>
+    </section>
+  </div>
+
+</body>
+</html>
